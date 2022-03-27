@@ -31,20 +31,7 @@ There were a lot of things that could have been fixed, I started with enabling l
     
 - **Architecting the initial app of ZuPay**
     
-    I am a big fan of [resocoder](https://www.youtube.com/c/ResoCoder) and I have learned a lot from him. There is a particular architecture that he suggests which is based on:
-    
-    - Feature-based folder structure.
-    - Riverpod + Freezed to manage states.
-    - Riverpod for dependency injection.
-    - Dio for network calls.
-    - Dartz for some usage of functional programming like converting **Exceptions** into **Failures**(A “freezed“ dart class with different constructors for different cases).
-    - AutoRouter for managing routes.
-    
-    I tweaked it a bit to fit our need, our team was familiar with Provider so we decided to go ahead with **Provider** in place of **Riverpod**. We decided to go with **AutoRouter** for managing routes.
-    
-    But very soon we realized it was difficult to make `provider` work with this particular architecture mainly due to the fact that `AutoRouter` uses Navigator 2.0 and `provider` was not letting us use it properly so we decided to go ahead with Riverpod.
-
-The final architecture we use for the app is now `folder-based`, `get_it` for **DI**, and we use code-generation heavily to automate things for us, the rest is same as above.
+    The main goal behind coming up with this architecture was to make codebase scalable since we are a product based company and our mobile app is user facing product which will have hundreds of feature in future. So the codebase should be simple enough that addition of new features were easy and at the same time we should be able separate UI and logic clearly. We are following a folder based approach to structure the app and using `riverpod` to manage states, `get_it` for dependency injection and `dio` for making network calls.
     
 - **Full-timers joined us.**
     
@@ -62,7 +49,7 @@ The final architecture we use for the app is now `folder-based`, `get_it` for **
 
 Whenever you work at a startup, a lot of responsibilities come up and you learn to do a lot of things at the same time. 
 
-1. Technology: I got better at Flutter. Learn't riverpod, managing APIs and a lot of other things.
+1. Technology: I got better at Flutter. Learn't riverpod, managing APIs, and a lot of other things.
 2. Fail fast: While working at a startup it’s very critical that we implement things faster & fail fast while slowly winning the game in long term.
 3. Time management: Working here gave me a fairly good taste of how real-life jobs are. I was managing work, college, leading a team at CrossKnot, and managing some personal issues at the same time and it taught me a lot of things.
 
